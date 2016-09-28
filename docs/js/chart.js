@@ -2,21 +2,22 @@ $(function () {
   const api_endpoint = "https://m92j3c58q3.execute-api.ap-northeast-1.amazonaws.com/prod/";
 
   $("#btn").click(() => {
-    const api_resource_name = api_endpoint + 'daily-data/' + $('#date').val();
-    console.log(api_resource_name);
-    $.get(api_resource_name)
+    const api_url = api_endpoint + 'daily-data/' + $('#date').val();
+    //console.log(api_url);
+    $.getJSON(api_url)
     .done(res => {
       const wattData = padding_wattData(res);
       //console.log(wattData);
       const chartOptions = create_chartOptions(wattData);
-      const chart = new  Highcharts.Chart(chartOptions);
+      //const chart = new  Highcharts.Chart(chartOptions);
+      $('#container').highcharts(chartOptions);
     });
 
   });
 });
 
 
-function padding_wattData(res) {  // dataText = "2016/Sep/17 06:00:01, #0#, 88 2016/Sep/17 06:05:01, #1#, 94 ..."
+function padding_wattData(res) {
   const date = res.date;
   // padding time, watt data
   const max_data_length = 156;
