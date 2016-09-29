@@ -1,0 +1,23 @@
+machine:
+  timezone:
+    Asia/Tokyo
+
+dependencies:
+    override:
+        - sudo pip install awscli
+    post:
+        - aws configure set region ap-northeast-1
+
+test:
+  override:
+    - echo "Nothing to do here"
+
+deployment:
+  production: # just a label; label names are completely up to you
+    branch: master
+    commands:
+      - aws s3 sync docs/ s3://wat-chart/ --delete
+#  staging:
+#    branch: staging
+#    commands:
+#      - aws s3 sync html/ s3://st.s3site.proudit.jp/ --delete
