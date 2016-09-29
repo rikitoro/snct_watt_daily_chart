@@ -21,7 +21,7 @@ exports.handler = (event, context) => {
       wattData.original_data_url = original_data_url;
       context.done(null, wattData);
     } else {
-      context.fail();
+      context.fail(null, {"error":{"message":"cannot obtain watt data."}});
     }
   });
 };
