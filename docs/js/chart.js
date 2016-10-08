@@ -39,34 +39,12 @@ $(function () {
 
 });
 
-
-
 function to_series_data(res, chart_type = 'line') {
   const data = _.zip(_.map(res.time,time => {return Date.parse('1970-01-01' + ' ' + time)}), res.watt);
   return {name: res.date, data: data, type: chart_type};
 }
 
-function to_today_datetimedata(res) {
-  const data = _.zip(_.map(res.time,time => {return Date.parse('1970-01-01' + ' ' + time)}), res.watt);
-  return {name: res.date, data: data, color: colorGen(),type: 'area'};
-}
 
 
-function create_chartOptions(data) {
 
-  return chartOptions;
-}
 
-function toLocaleString( datetime ) {
-  const date = new Date(datetime);
-  return [
-    date.getFullYear(),
-    date.getMonth() + 1,
-    date.getDate()
-    ].join( '/' ) + ' '
-    + date.toLocaleTimeString();
-}
-
-function colorGen(){
-  return '#'+Math.floor(Math.random()*16777215).toString(16);
-}
