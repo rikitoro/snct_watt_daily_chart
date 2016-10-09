@@ -1,3 +1,5 @@
+'use strict';
+
 const chart_options = {
   chart: {
     renderTo: 'container',
