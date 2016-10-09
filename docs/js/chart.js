@@ -20,7 +20,8 @@ $(function () {
       const series_data = to_series_data(res, 'area');
       chart.addSeries(series_data);
     } else {
-      console.log("cannot obtain today's data");
+      toastr.error('データを取得できませんでした');
+      //console.log("cannot obtain today's data");
     }
   });
 
@@ -32,7 +33,8 @@ $(function () {
         const series_data = to_series_data(res);
         chart.addSeries(series_data);
       } else {
-        console.log("cannot obtain daily data");
+        toastr.error('データを取得できませんでした');
+        //console.log("cannot obtain daily data");
       }
     });
   });
