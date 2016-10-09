@@ -10,8 +10,9 @@ $(() => {
   //
   toastr.options.timeOut = 3000;
   toastr.options.closeButton = true;
+
   //
-  let chart = new Highcharts.Chart(chart_options);
+  var chart = new Highcharts.Chart(chart_options);
 
   // get today'data and draw chart
   $.getJSON(config.api_url.today)
@@ -20,7 +21,7 @@ $(() => {
       const series_data = to_series_data(res, 'area');
       chart.addSeries(series_data);
     } else {
-      toastr.info('データを取得できませんでした');
+      toastr.error('データを取得できませんでした');
       //console.log("cannot obtain today's data");
     }
   });
@@ -33,7 +34,7 @@ $(() => {
         const series_data = to_series_data(res);
         chart.addSeries(series_data);
       } else {
-        toastr.info('データを取得できませんでした');
+        toastr.error('データを取得できませんでした');
         //console.log("cannot obtain daily data");
       }
     });
