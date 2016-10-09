@@ -1,18 +1,15 @@
-'use strict;'
+'use strict';
 
-//
-Highcharts.setOptions({
-  global: {
-    useUTC: false
-  }
-});
-//
-toastr.options.timeOut = 3000;
-toastr.options.closeButton = true;
-
-/////
-
-$(function () {
+$(() => {
+  //
+  Highcharts.setOptions({
+    global: {
+      useUTC: false
+    }
+  });
+  //
+  toastr.options.timeOut = 3000;
+  toastr.options.closeButton = true;
   //
   let chart = new Highcharts.Chart(chart_options);
 

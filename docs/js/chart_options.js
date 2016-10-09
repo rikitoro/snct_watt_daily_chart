@@ -1,5 +1,3 @@
-'use strict;'
-
 const chart_options = {
   chart: {
     renderTo: 'container',
@@ -37,7 +35,7 @@ const chart_options = {
 
   tooltip: {
     headerFormat: '{series.name}<br>',
-    pointFormatter: function() {
+    pointFormatter: () => {
        return new Date(this.x).toLocaleTimeString() + '<br>' + this.y +'[kW]';
     }
   },
