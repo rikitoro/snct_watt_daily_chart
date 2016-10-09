@@ -35,7 +35,7 @@ const chart_options = {
 
   tooltip: {
     headerFormat: '{series.name}<br>',
-    pointFormatter: () => {
+    pointFormatter: function() {
        return new Date(this.x).toLocaleTimeString() + '<br>' + this.y +'[kW]';
     }
   },
