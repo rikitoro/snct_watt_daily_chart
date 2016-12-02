@@ -1,5 +1,8 @@
 'use strict';
 
+const chart_options = require('./chart_options.js');
+const config = require('./config.js');
+
 $(function() {
   //
   Highcharts.setOptions({
