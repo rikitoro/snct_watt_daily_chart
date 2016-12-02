@@ -52,3 +52,5 @@ const chart_options = {
   // データ
   series: []
 };
+
+module.exports = chart_options;
